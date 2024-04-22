@@ -2,7 +2,6 @@ from django.shortcuts import render, get_object_or_404, get_list_or_404
 
 from .models import Job
 
-
 def job_list(request):
     jobs = Job.objects.filter(is_active=True).prefetch_related("skills")
     return render(request, "jobs/job_list.html", {"jobs": jobs})
